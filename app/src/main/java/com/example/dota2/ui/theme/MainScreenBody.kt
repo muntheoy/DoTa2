@@ -28,9 +28,6 @@ fun MainScreenBody(){
     ) {
 
         Column {
-
-
-
                 Column(modifier = Modifier.padding(MainScreenBodyDimensions.padding)) {
                     Tags()
                     Spacer(modifier = Modifier.height(MainScreenBodyDimensions.spacing))
@@ -39,7 +36,7 @@ fun MainScreenBody(){
 
 
 
-                Column(modifier = Modifier.padding(start = MainScreenBodyDimensions.padding)) {
+                Column() {
                     PhotosCarousel(
                         previewResList = listOf(R.drawable.photo1, R.drawable.photo2, R.drawable.photo3)
                     )

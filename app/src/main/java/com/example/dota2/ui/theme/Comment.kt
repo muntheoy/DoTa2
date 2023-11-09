@@ -1,10 +1,12 @@
 package com.example.dota2.ui.theme
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -28,11 +30,13 @@ object CommentDimensions {
 @Composable
 fun Comment(commentData: CommentData) {
     Column {
-        Row {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             CircularAvatar(commentData.imageResId)
             Column(
                 modifier = Modifier
-                    .padding(CommentDimensions.avatarSpacing)
+                    .padding(start = CommentDimensions.avatarSpacing)
             ) {
                 Text(
                     text = commentData.name,
@@ -45,7 +49,7 @@ fun Comment(commentData: CommentData) {
                     color = Color.White
                 )
                 Text(
-                    text = commentData.month + " " + commentData.date.toString() + "," + " " + commentData.year.toString(),
+                    text = "${commentData.month} ${commentData.date}, ${commentData.year}",
                     fontSize = CommentDimensions.dateTextSize,
                     letterSpacing = 0.5.sp,
                     style = TextStyle(
@@ -69,4 +73,9 @@ fun Comment(commentData: CommentData) {
             modifier = Modifier.padding(top = CommentDimensions.commentSpacing)
         )
     }
+}
+@Preview
+@Composable
+fun CommentPreview(){
+    Comment(commentData = user1)
 }
